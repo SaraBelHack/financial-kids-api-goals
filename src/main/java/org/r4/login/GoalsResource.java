@@ -50,7 +50,8 @@ public class GoalsResource {
     @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema (implementation = Goals.class  )))
     @GET
     @Path("/goals")
-    public List<Goals> goals() {
-        return service.goals();
+    public Response goals() {
+        List<Goals> goals = service.goals();
+        return Response.ok(goals).build();
     }
 }
